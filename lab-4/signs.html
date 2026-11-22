@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Дорожные знаки</title>
+
+  <link rel="stylesheet"
+        href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+  <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
+
+  <style>
+    .tooltip {
+      position: relative;
+    }
+    .tooltip .ui-tooltip {
+      position: absolute;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      padding: 5px;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+  <h1>Дорожные знаки</h1>
+
+  <p>
+    <img class="tooltip" src="img/signs/1_1.svg"   alt="Знак 1"  data-hint="Железнодорожный переезд со шлагбаумом">
+    <img class="tooltip" src="img/signs/1_8.svg"   alt="Знак 2"  data-hint="Светофорное регулирование">
+    <img class="tooltip" src="img/signs/1_22.svg"  alt="Знак 3"  data-hint="Пешеходный переход">
+    <img class="tooltip" src="img/signs/1_27.svg"  alt="Знак 4"  data-hint="Дикие животные">
+    <img class="tooltip" src="img/signs/2_5.svg"   alt="Знак 5"  data-hint="Движение без остановки запрещено">
+  </p>
+
+  <p>
+    <img class="tooltip" src="img/signs/3_1.svg"   alt="Знак 6"  data-hint="Въезд запрещён">
+    <img class="tooltip" src="img/signs/3_24.svg"  alt="Знак 7"  data-hint="Ограничение максимальной скорости 50">
+    <img class="tooltip" src="img/signs/4_1_1.gif" alt="Знак 8"  data-hint="Движение прямо">
+    <img class="tooltip" src="img/signs/6_4.gif"   alt="Знак 9"  data-hint="Место стоянки">
+    <img class="tooltip" src="img/signs/7_1.gif"   alt="Знак 10" data-hint="Пункт первой медицинской помощи">
+  </p>
+
+  <script>
+    $(function () {
+      $(document).tooltip({
+        items: "img",
+        content: function () {
+          var $element = $(this);
+          if ($element.is("img")) {
+            return $element.data('hint');
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>
